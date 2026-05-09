@@ -1,0 +1,19 @@
+{
+  "version": "2.1.0",
+  "startupId": "88455BBA-D4C8-4733-8BB8-A1B9E274D5D1",
+  "phase": "bootstrap",
+  "subPhase": "initialized",
+  "prdPath": "",
+  "prdHash": "",
+  "prdLastModified": "2026-05-01T22:55:34-04:00",
+  "agents": {"active":[],"idle":[],"failed":[],"totalSpawned":0,"totalTerminated":0},
+  "circuitBreakers": {},
+  "metrics": {"tasksCompleted":0,"tasksFailed":0,"tasksInDeadLetter":0,"deployments":0,"rollbacks":0,"incidentsDetected":0,"incidentsResolved":0,"revenue":0,"customers":0,"agentComputeMinutes":0},
+  "lastCheckpoint": "2026-05-01T22:55:34-04:00",
+  "lastBackup": "",
+  "lastLogRotation": "",
+  "currentRelease": "0.0.0",
+  "systemHealth": "green",
+  "pausedAt": null,
+  "pauseReason": null
+}

@@ -1,6 +1,3 @@
-"""CLI integration for Claude Code."""
+from .process_registry import kill_all_best_effort
 
-from .manager import CLISessionManager
-from .session import CLISession
-
-__all__ = ["CLISession", "CLISessionManager"]
+__all__ = ["kill_all_best_effort"]
