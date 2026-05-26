@@ -48,3 +48,29 @@ class NimSettings(BaseModel):
         if v == "":
             return None
         return v
+    def to_openai_params(self) -> dict:
+        """Convert to OpenAI-compatible parameters."""
+        params = {
+            "temperature": self.temperature,
+            "top_p": self.top_p,
+            "max_tokens": self.max_tokens,
+            "presence_penalty": self.presence_penalty,
+            "frequency_penalty": self.frequency_penalty,
+            "seed": self.seed,
+            "stop": self.stop,
+        }
+
+        # Add extra NIM-specific parameters to extra_body
+        extra_body = {
+            "top_k": self.top_k,
+            "min_p": self.min_p,
+            "repetition_penalty": self.repetition_penalty,
+            "ignore_eos": self.ignore_eos,
+            "min_tokens": self.min_tokens,
+        }
+        
+        if self.chat_template:
+            extra_body["chat_template"] = self.chat_template
+            
+        params["extra_body"] = extra_body
+        return {k: v for k, v in params.items() if v is not None}

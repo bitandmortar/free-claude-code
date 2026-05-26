@@ -10,3 +10,7 @@ agent_workspace
 server.log
 .coverage
 llama_cache
+models/
+__pycache__/
+*.pyc
+.DS_Store

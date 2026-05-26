@@ -62,6 +62,15 @@ class LlamaCppProvider(BaseProvider):
         # Dump the Anthropic Pydantic model directly into a dict
         body = request.model_dump(exclude_none=True)
 
+        # Ensure images are handled correctly for llama.cpp's vision support
+        # If messages contain image content, ensure they are passed through
+        for msg in body.get("messages", []):
+            content = msg.get("content")
+            if isinstance(content, list):
+                for part in content:
+                    if isinstance(part, dict) and part.get("type") == "image":
+                        part["type"] = "image_url"  # Standardize for vision backends
+
         # Remove extra_body, original_model, resolved_provider_model which are internal
         body.pop("extra_body", None)
         body.pop("original_model", None)
